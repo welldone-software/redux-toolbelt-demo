@@ -1,6 +1,8 @@
-This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
+# redux-toolbelt demo
 
-To see this project's source code remotely go to:
+This is a demonstration of the use of [redux-toolbelt](https://github.com/welldone-software/redux-toolbelt).
+
+[The demo in a remote environment](https://codesandbox.io/s/github/welldone-software/redux-toolbelt-demo)
 
 To launch it locally run:
 ```
