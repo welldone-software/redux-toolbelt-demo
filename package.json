@@ -11,7 +11,8 @@
     "redux": "3.7.2",
     "redux-logger": "3.0.6",
     "redux-thunk": "2.2.0",
-    "redux-toolbelt": "^2.0.4"
+    "redux-toolbelt": "^2.0.4",
+    "redux-toolbelt-immutable-helpers": "^1.0.3"
   },
   "devDependencies": {
     "react-scripts": "1.0.0"
