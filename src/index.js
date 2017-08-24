@@ -9,6 +9,11 @@ import thunk from 'redux-thunk'
 
 import Main from './components/Main'
 
+import vanillaReducers from './vanilla-redux/reducers'
+import * as vanillaActions from './vanilla-redux/actions'
+import toolbeltReducers from './redux-toolbelt/reducers'
+import * as toolbeltActions from './redux-toolbelt/actions'
+
 /**************************************************
  *                                                *
  * here you decide if the application             *
@@ -16,17 +21,13 @@ import Main from './components/Main'
  *                                                *
  **************************************************/
 
-/*******************************
- *      vanila-redux           *
- *******************************/
-// import reducers from './vanilla-redux/reducers'
-// import * as allActions from './vanilla-redux/actions'
+const SHOULD_USE_VANILLA_REDUX = false
 
-/*******************************
- *    redux-toolbelt           *
- *******************************/
-import reducers from './redux-toolbelt/reducers'
-import * as allActions from './redux-toolbelt/actions'
+/**************************************************
+ **************************************************/
+
+const reducers = SHOULD_USE_VANILLA_REDUX ? vanillaReducers : toolbeltReducers
+const actions = SHOULD_USE_VANILLA_REDUX ? vanillaActions : toolbeltActions
 
 const logger = createLogger()
 
@@ -39,7 +40,7 @@ const store = createStoreWithMiddleware(reducers)
 
 const App = () => (
   <Provider store={store}>
-    <Main actions={bindActionCreators(allActions, store.dispatch)}/>
+    <Main actions={bindActionCreators(actions, store.dispatch)}/>
   </Provider>
 )
 
