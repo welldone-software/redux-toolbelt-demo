@@ -11,7 +11,7 @@ const Customers = ({ customers }) => {
       <h2>Your Customers:</h2>
       <ul>
         {customers.map(customer => (
-          <li>{customer}</li>
+          <li key={customer}>{customer}</li>
         ))}
       </ul>
     </div>

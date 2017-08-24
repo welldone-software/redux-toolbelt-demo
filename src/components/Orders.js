@@ -11,7 +11,7 @@ const Orders = ({ orders }) => {
       <h2>Your Orders:</h2>
       <ul>
         {orders.map(order => (
-          <li>{order}</li>
+          <li key={order}>{order}</li>
         ))}
       </ul>
     </div>

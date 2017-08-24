@@ -2,8 +2,8 @@ import { makeAsyncActionCreator, makeActionCreator } from 'redux-toolbelt'
 import { fetchUserProfile, fetchCustomers, fetchOrders } from '../services/api'
 
 export const loadProfile = makeAsyncActionCreator('LOAD_PROFILE')
-export const loadOrders = makeAsyncActionCreator('LOAD_CUSTOMERS')
 export const loadCustomers = makeAsyncActionCreator('LOAD_CUSTOMERS')
+export const loadOrders = makeAsyncActionCreator('LOAD_ORDERS')
 
 export const login = () => {
   return (dispatch) => {
