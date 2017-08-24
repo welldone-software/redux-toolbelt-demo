@@ -1,14 +1,21 @@
 import React from 'react'
 import { render } from 'react-dom'
 
-import { createStore, applyMiddleware } from 'redux'
+import { createStore, applyMiddleware, bindActionCreators } from 'redux'
 import { Provider } from 'react-redux'
 
 import { createLogger } from 'redux-logger'
 import thunk from 'redux-thunk'
 
-import reducers from './reducers'
 import Main from './components/Main'
+
+/** here you decide if the application
+ * should use the vanilla-redux or redux-toolbelt **/
+
+// vanilla redux
+import reducers from './vanilla-redux/reducers'
+import * as allActions from './vanilla-redux/actions'
+
 
 const logger = createLogger()
 
@@ -21,7 +28,7 @@ const store = createStoreWithMiddleware(reducers)
 
 const App = () => (
   <Provider store={store}>
-    <Main/>
+    <Main actions={bindActionCreators(allActions, store.dispatch)}/>
   </Provider>
 )
 

@@ -1,9 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { bindActionCreators } from 'redux'
 import _ from 'lodash'
-
-import * as allActions from '../actions'
 
 import Welcome from './Welcome'
 import ActionButton from './ActionButton'
@@ -12,7 +9,7 @@ import Orders from './Orders'
 
 const styles = {
   fontFamily: 'sans-serif',
-  textAlign: 'center',
+  textAlign: 'center'
 }
 
 const Main = ({ name, loading, actions, customers, orders }) => {
@@ -41,8 +38,5 @@ export default connect(
       _.get(state, 'customers.loading') ||
       _.get(state, 'orders.loading')
     )
-  }),
-  dispatch => ({
-    actions: bindActionCreators(allActions, dispatch)
   })
 )(Main)
