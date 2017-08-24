@@ -1,39 +1,39 @@
 import {
   LOGIN, LOGOUT,
-  FETCH_PROFILE, FETCH_PROFILE_SUCCESS,
-  FETCH_CUSTOMERS, FETCH_CUSTOMERS_SUCCESS,
-  FETCH_ORDERS, FETCH_ORDERS_SUCCESS
-} from '../consts/actionNames'
+  LOAD_PROFILE, LOAD_PROFILE_SUCCESS,
+  LOAD_CUSTOMERS, LOAD_CUSTOMERS_SUCCESS,
+  LOAD_ORDERS, LOAD_ORDERS_SUCCESS
+} from './consts/actionNames'
 
-import { fetchUserProfile, fetchCustomers, fetchOrders } from '../../services/api'
+import { fetchUserProfile, fetchCustomers, fetchOrders } from '../services/api'
 
 export const login = () => {
   return (dispatch, getState) => {
     dispatch({ type: LOGIN })
 
-    dispatch({ type: FETCH_PROFILE })
+    dispatch({ type: LOAD_PROFILE })
     fetchUserProfile()
       .then(userProfile => {
         dispatch({
-          type: FETCH_PROFILE_SUCCESS,
+          type: LOAD_PROFILE_SUCCESS,
           payload: userProfile
         })
       })
 
-    dispatch({ type: FETCH_CUSTOMERS })
+    dispatch({ type: LOAD_CUSTOMERS })
     fetchCustomers()
       .then(customers => {
         dispatch({
-          type: FETCH_CUSTOMERS_SUCCESS,
+          type: LOAD_CUSTOMERS_SUCCESS,
           payload: customers
         })
       })
       
-    dispatch({ type: FETCH_ORDERS })
+    dispatch({ type: LOAD_ORDERS })
     fetchOrders()
       .then(orders => {
         dispatch({
-          type: FETCH_ORDERS_SUCCESS,
+          type: LOAD_ORDERS_SUCCESS,
           payload: orders
         })
       })

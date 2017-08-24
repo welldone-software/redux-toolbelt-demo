@@ -1,5 +1,5 @@
 import {
-  FETCH_ORDERS, FETCH_ORDERS_SUCCESS, LOGOUT
+  LOAD_ORDERS, LOAD_ORDERS_SUCCESS, LOGOUT
 } from '../consts/actionNames'
 
 const defaultState = {
@@ -9,13 +9,13 @@ const defaultState = {
 
 export default (state = defaultState, { type, payload }) => {
   switch (type) {
-    case (FETCH_ORDERS): {
+    case (LOAD_ORDERS): {
       return {
         ...state,
         loading: true
       }
     }
-    case (FETCH_ORDERS_SUCCESS): {
+    case (LOAD_ORDERS_SUCCESS): {
       return {
         ...state,
         data: payload,

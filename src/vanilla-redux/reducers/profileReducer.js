@@ -1,5 +1,5 @@
 import {
-  FETCH_PROFILE, FETCH_PROFILE_SUCCESS, LOGOUT
+  LOAD_PROFILE, LOAD_PROFILE_SUCCESS, LOGOUT
 } from '../consts/actionNames'
 
 const defaultState = {
@@ -9,13 +9,13 @@ const defaultState = {
 
 export default (state = defaultState, { type, payload }) => {
   switch(type){
-    case (FETCH_PROFILE):{
+    case (LOAD_PROFILE):{
       return {
         ...state,
         loading: true
       }
     }
-    case (FETCH_PROFILE_SUCCESS): {
+    case (LOAD_PROFILE_SUCCESS): {
       return {
         ...state,
         data: payload,
