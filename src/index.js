@@ -9,13 +9,24 @@ import thunk from 'redux-thunk'
 
 import Main from './components/Main'
 
-/** here you decide if the application
- * should use the vanilla-redux or redux-toolbelt **/
+/**************************************************
+ *                                                *
+ * here you decide if the application             *
+ * should use the vanilla-redux or redux-toolbelt *
+ *                                                *
+ **************************************************/
 
-// vanilla redux
-import reducers from './vanilla-redux/reducers'
-import * as allActions from './vanilla-redux/actions'
+/*******************************
+ *      vanila-redux           *
+ *******************************/
+// import reducers from './vanilla-redux/reducers'
+// import * as allActions from './vanilla-redux/actions'
 
+/*******************************
+ *    redux-toolbelt           *
+ *******************************/
+import reducers from './redux-toolbelt/reducers'
+import * as allActions from './redux-toolbelt/actions'
 
 const logger = createLogger()
 
