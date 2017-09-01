@@ -13,8 +13,7 @@ export default composeReducers(
       case logout.TYPE:
         return updateObjectProperties(
           state,
-          ['profile', 'customers', 'orders'],
-          {loading: false, data: null}
+          () => ({loading: false, data: null})
         )
       default:
         return state
