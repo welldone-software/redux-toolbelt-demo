@@ -1,5 +1,8 @@
 import { takeLatest, call, all, put } from 'redux-saga/effects'
-import { LOGIN, LOAD_PROFILE, LOAD_CUSTOMERS, LOAD_ORDERS } from './consts/actionNames'
+
+import {
+  LOGIN, LOAD_PROFILE, LOAD_CUSTOMERS, LOAD_ORDERS
+} from './consts/actionNames'
 
 import {
   loadProfile, loadProfileSuccess, loadProfileFailure,
@@ -7,7 +10,9 @@ import {
   loadOrders, loadOrdersSuccess, loadOrdersFailure
 } from './actions'
 
-import { fetchUserProfile, fetchCustomers, fetchOrders } from '../common/services/api'
+import {
+  fetchUserProfile, fetchCustomers, fetchOrders
+} from '../common/services/api'
 
 function* loadProfileSaga(){
   try {

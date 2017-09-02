@@ -1,5 +1,5 @@
 import {
-  LOAD_PROFILE, LOAD_PROFILE_SUCCESS, LOGOUT
+  LOGOUT, LOAD_PROFILE, LOAD_PROFILE_SUCCESS, LOAD_PROFILE_FAILURE
 } from '../consts/actionNames'
 
 const defaultState = {
@@ -19,6 +19,14 @@ export default (state = defaultState, { type, payload }) => {
       return {
         ...state,
         data: payload,
+        loading: false
+      }
+    }
+    case (LOAD_PROFILE_FAILURE): {
+      return {
+        ...state,
+        data: null,
+        error: payload,
         loading: false
       }
     }
