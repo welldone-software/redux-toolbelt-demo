@@ -2,7 +2,7 @@ import { takeLatest, call, all, put } from 'redux-saga/effects'
 
 import {
   LOGIN, LOAD_PROFILE, LOAD_CUSTOMERS, LOAD_ORDERS
-} from './consts/actionNames'
+} from './consts'
 
 import {
   loadProfile, loadProfileSuccess, loadProfileFailure,

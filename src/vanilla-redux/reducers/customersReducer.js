@@ -1,6 +1,6 @@
 import {
   LOGOUT, LOAD_CUSTOMERS, LOAD_CUSTOMERS_SUCCESS, LOAD_CUSTOMERS_FAILURE
-} from '../consts/actionNames'
+} from '../consts'
 
 const defaultState = {
   data: undefined,

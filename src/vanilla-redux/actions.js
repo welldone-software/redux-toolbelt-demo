@@ -3,7 +3,7 @@ import {
   LOAD_PROFILE, LOAD_PROFILE_SUCCESS, LOAD_PROFILE_FAILURE,
   LOAD_CUSTOMERS, LOAD_CUSTOMERS_SUCCESS, LOAD_CUSTOMERS_FAILURE,
   LOAD_ORDERS, LOAD_ORDERS_SUCCESS, LOAD_ORDERS_FAILURE
-} from './consts/actionNames'
+} from './consts'
 
 import {
   fetchUserProfile, fetchCustomers, fetchOrders

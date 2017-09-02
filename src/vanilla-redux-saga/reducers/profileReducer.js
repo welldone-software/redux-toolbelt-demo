@@ -1,6 +1,6 @@
 import {
   LOAD_PROFILE, LOAD_PROFILE_SUCCESS, LOGOUT
-} from '../consts/actionNames'
+} from '../consts'
 
 const defaultState = {
   data: undefined,
