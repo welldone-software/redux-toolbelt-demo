@@ -1,11 +1,13 @@
-import 'babel-polyfill/dist/polyfill.js'
-
 import React from 'react'
 import { render } from 'react-dom'
 import { Provider } from 'react-redux'
 
 import Main from './common/components/Main'
 import createStore from './createStore'
+
+if(!window.regeneratorRuntime){
+  window.regeneratorRuntime = require('babel-runtime/regenerator')
+}
 
 /******************************************************
  *                                                    *

@@ -4,7 +4,6 @@
   "version": "0.0.148",
   "private": true,
   "dependencies": {
-    "babel-polyfill": "^6.26.0",
     "lodash": "^4.17.4",
     "react": "^15.6.1",
     "react-dom": "^15.5.3",
