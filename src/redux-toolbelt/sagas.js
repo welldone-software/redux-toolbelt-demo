@@ -4,10 +4,6 @@ import { makeAsyncSaga } from 'redux-toolbelt-saga'
 import { login, loadProfile, loadCustomers, loadOrders } from './actions'
 import { fetchUserProfile, fetchCustomers, fetchOrders } from '../services/api'
 
-const loadProfileSaga = makeAsyncSaga(loadProfile, fetchUserProfile)
-const loadCustomersSaga = makeAsyncSaga(loadCustomers, fetchCustomers)
-const loadOrdersSaga = makeAsyncSaga(loadOrders, fetchOrders)
-
 function* loginSaga(){
   yield all([
     put(loadProfile()),
@@ -16,13 +12,11 @@ function* loginSaga(){
   ])
 }
 
-function* sagas() {
+export default function* sagas() {
   yield [
     takeLatest(login.TYPE, loginSaga),
-    fork(loadProfileSaga),
-    fork(loadCustomersSaga),
-    fork(loadOrdersSaga),
+    fork(makeAsyncSaga(loadProfile, fetchUserProfile)),
+    fork(makeAsyncSaga(loadCustomers, fetchCustomers)),
+    fork(makeAsyncSaga(loadOrders, fetchOrders)),
   ]
 }
-
-export default sagas
