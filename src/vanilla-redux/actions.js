@@ -5,7 +5,7 @@ import {
   LOAD_ORDERS, LOAD_ORDERS_SUCCESS
 } from './consts/actionNames'
 
-import { fetchUserProfile, fetchCustomers, fetchOrders } from '../services/api'
+import { fetchUserProfile, fetchCustomers, fetchOrders } from '../common/services/api'
 
 export const login = () => {
   return (dispatch, getState) => {
