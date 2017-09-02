@@ -23,9 +23,16 @@ const USE_SAGA = true
 
 const { bindedActions, store } = createStore(USE_REDUX_TOOLBELT, USE_SAGA)
 
+const title = [
+  'running using',
+  USE_REDUX_TOOLBELT ? 'redux-toolbelt' : 'vanilla-redux',
+  USE_SAGA ? 'with' : 'without',
+  'saga'
+].join(' ')
+
 const App = () => (
   <Provider store={store}>
-    <Main actions={bindedActions}/>
+    <Main actions={bindedActions} title={title}/>
   </Provider>
 )
 

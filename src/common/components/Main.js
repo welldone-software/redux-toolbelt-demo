@@ -12,10 +12,11 @@ const styles = {
   textAlign: 'center'
 }
 
-const Main = ({ name, loading, actions, customers, orders }) => {
+const Main = ({ name, loading, actions, customers, orders, title }) => {
   return (
     <div style={styles}>
       <Welcome name={name} loading={loading} />
+      <h3>{title}</h3>
       <ActionButton
         connected={!!name}
         loading={loading}
