@@ -21,13 +21,13 @@ import * as toolbeltActions from './redux-toolbelt/actions'
  *                                                *
  **************************************************/
 
-const SHOULD_USE_VANILLA_REDUX = false
+const USE_VANILLA_REDUX = false
 
 /**************************************************
  **************************************************/
 
-const reducers = SHOULD_USE_VANILLA_REDUX ? vanillaReducers : toolbeltReducers
-const actions = SHOULD_USE_VANILLA_REDUX ? vanillaActions : toolbeltActions
+const reducers = USE_VANILLA_REDUX ? vanillaReducers : toolbeltReducers
+const actions = USE_VANILLA_REDUX ? vanillaActions : toolbeltActions
 
 const logger = createLogger()
 
