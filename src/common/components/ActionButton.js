@@ -1,9 +1,9 @@
 import React from 'react'
 
-const ActionButton = ({ connected, loading, logout, login }) => {
+const ActionButton = ({ loggedIn, loading, logout, login }) => {
   return (
-    <button disabled={loading} onClick={connected ? logout : login}>
-      {loading ? 'loading...' : (connected ? 'Disconnect' : 'Connect')}
+    <button disabled={loading} onClick={loggedIn ? logout : login}>
+      {loading ? 'loading...' : (loggedIn ? 'Disconnect' : 'Connect')}
     </button >
   )
 }

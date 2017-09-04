@@ -1,6 +1,8 @@
 export const LOGIN = 'CONNECT'
 export const LOGOUT = 'LOGOUT'
 
+export const CHANGE_USER_NAME = 'CHANGE_USER_NAME'
+
 export const LOAD_PROFILE = 'LOAD_PROFILE'
 export const LOAD_PROFILE_SUCCESS = 'LOAD_PROFILE_SUCCESS'
 export const LOAD_PROFILE_FAILURE = 'LOAD_PROFILE_FAILURE'

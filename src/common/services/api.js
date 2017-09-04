@@ -1,7 +1,7 @@
-export const fetchUserProfile = () => {
+export const fetchUserProfile = (userNam) => {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
-      resolve({name: 'user'})
+      resolve({id: 'some_user_id'})
     }, 1200)
   })
 }

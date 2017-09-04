@@ -3,6 +3,8 @@ import {
   fetchUserProfile, fetchCustomers, fetchOrders
 } from '../common/services/api'
 
+export const changeUserName = makeActionCreator('CHANGE_USERNAME')
+
 export const loadProfile = makeAsyncActionCreator('LOAD_PROFILE')
 export const loadCustomers = makeAsyncActionCreator('LOAD_CUSTOMERS')
 export const loadOrders = makeAsyncActionCreator('LOAD_ORDERS')

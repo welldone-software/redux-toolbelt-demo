@@ -1,5 +1,5 @@
 import {
-  LOGIN, LOGOUT,
+  LOGIN, LOGOUT, CHANGE_USER_NAME,
   LOAD_PROFILE, LOAD_PROFILE_SUCCESS, LOAD_PROFILE_FAILURE,
   LOAD_CUSTOMERS, LOAD_CUSTOMERS_SUCCESS, LOAD_CUSTOMERS_FAILURE,
   LOAD_ORDERS, LOAD_ORDERS_SUCCESS, LOAD_ORDERS_FAILURE
@@ -8,6 +8,13 @@ import {
 import {
   fetchUserProfile, fetchCustomers, fetchOrders
 } from '../common/services/api'
+
+export const changeUserName = newUserName => ({
+  type: CHANGE_USER_NAME,
+  payload: newUserName
+})
+
+export const logout = () => ({ type: LOGOUT })
 
 export const login = () => {
   return (dispatch) => {
@@ -51,5 +58,3 @@ export const login = () => {
     )
   }
 }
-
-export const logout = () => ({ type: LOGOUT })

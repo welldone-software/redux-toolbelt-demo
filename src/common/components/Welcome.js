@@ -1,11 +1,9 @@
 import React from 'react'
 
-const Welcome = ({ name, loading }) => {
+const Welcome = ({ userName, loggedIn }) => {
   return (
     <h2>
-      {loading ? 'Loading...' : (
-        name ? `Hi ${name}!` : 'Please Login.'
-      )}
+      {`Hello ${userName}!${loggedIn ? '' : ' Please Login.'}`}
     </h2>
   )
 }

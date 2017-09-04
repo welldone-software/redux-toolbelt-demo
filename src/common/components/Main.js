@@ -12,28 +12,39 @@ const styles = {
   textAlign: 'center'
 }
 
-const Main = ({ name, loading, actions, customers, orders, title }) => {
+const Main = ({ loggedIn, loading, userName, customers, orders, title, actions }) => {
   return (
     <div style={styles}>
-      <Welcome name={name} loading={loading} />
+      <Welcome userName={userName} loading={loading} />
       <h3>{title}</h3>
+      {!loggedIn && !loading && (
+        <div style={{marginBottom: 10}}>
+          <span>User Name: </span>
+          <input value={userName} onChange={e => actions.changeUserName(e.target.value)}/>
+        </div>
+      )}
       <ActionButton
-        connected={!!name}
+        loggedIn={loggedIn}
         loading={loading}
         login={actions.login}
         logout={actions.logout}
       />
-      {!loading && <Customers customers={customers}/>}
-      {!loading && <Orders orders={orders}/>}
+      {loggedIn && <Customers customers={customers}/>}
+      {loggedIn && <Orders orders={orders}/>}
     </div>
   )
 }
 
 export default connect(
   state => ({
-    name: _.get(state, 'profile.data.name'),
+    userName: _.get(state, 'userName'),
     customers: _.get(state, 'customers.data'),
     orders: _.get(state, 'orders.data'),
+    loggedIn: (
+      _.get(state, 'profile.data') &&
+      _.get(state, 'customers.data') &&
+      _.get(state, 'orders.data')
+    ),
     loading: (
       _.get(state, 'profile.loading') ||
       _.get(state, 'customers.loading') ||

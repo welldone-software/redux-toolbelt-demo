@@ -1,5 +1,5 @@
 import {
-  LOGIN, LOGOUT,
+  LOGIN, LOGOUT, CHANGE_USER_NAME,
   LOAD_PROFILE, LOAD_PROFILE_SUCCESS, LOAD_PROFILE_FAILURE,
   LOAD_CUSTOMERS, LOAD_CUSTOMERS_SUCCESS, LOAD_CUSTOMERS_FAILURE,
   LOAD_ORDERS, LOAD_ORDERS_SUCCESS, LOAD_ORDERS_FAILURE
@@ -12,6 +12,11 @@ export function login(){
 export function logout(){
   return { type: LOGOUT }
 }
+
+export const changeUserName = newUserName => ({
+  type: CHANGE_USER_NAME,
+  payload: newUserName
+})
 
 // profile
 export function loadProfile(){
