@@ -7,6 +7,8 @@ export const loadProfile = makeAsyncActionCreator('LOAD_PROFILE')
 export const loadCustomers = makeAsyncActionCreator('LOAD_CUSTOMERS')
 export const loadOrders = makeAsyncActionCreator('LOAD_ORDERS')
 
+export const logout = makeActionCreator('LOGOUT')
+
 export const login = () => {
   return (dispatch) => {
     dispatch({ type: 'LOGIN' })
@@ -32,5 +34,3 @@ export const login = () => {
 }
 
 login.TYPE = 'LOGIN'
-
-export const logout = makeActionCreator('LOGOUT')
