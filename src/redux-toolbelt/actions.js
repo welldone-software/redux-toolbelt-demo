@@ -1,7 +1,5 @@
 import { makeAsyncActionCreator, makeActionCreator } from 'redux-toolbelt'
-import {
-  fetchUserProfile, fetchCustomers, fetchOrders
-} from '../common/services/api'
+import { fetchUserProfile, fetchCustomers, fetchOrders } from '../common/services/api'
 
 export const changeUserName = makeActionCreator('CHANGE_USERNAME')
 

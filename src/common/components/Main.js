@@ -37,7 +37,7 @@ const Main = ({ loggedIn, loading, userName, profile, customers, orders, title, 
 
 export default connect(
   state => ({
-    userName: _.get(state, 'userName'),
+    userName: state.userName,
     customers: _.get(state, 'customers.data'),
     orders: _.get(state, 'orders.data'),
     profile: _.get(state, 'profile.data'),

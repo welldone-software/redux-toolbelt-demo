@@ -2,37 +2,56 @@ import { compact } from 'lodash'
 
 import { createStore, applyMiddleware, bindActionCreators } from 'redux'
 
+import { REDUX_STYLE_TYPES } from './common/consts'
+
 import { createLogger } from 'redux-logger'
 import thunk from 'redux-thunk'
 import createSagaMiddleware from 'redux-saga'
 
-import vanillaReducers from './vanilla-redux/reducers'
 import * as vanillaActions from './vanilla-redux/actions'
+import vanillaReducers from './vanilla-redux/reducers'
 
-import vanillaSagaReducers from './vanilla-redux-saga/reducers'
-import * as vanillaSagaActions from './vanilla-redux-saga/actions'
-import vanillaSagas from './vanilla-redux-saga/sagas'
-
-import toolbeltReducers from './redux-toolbelt/reducers'
 import * as toolbeltActions from './redux-toolbelt/actions'
+import toolbeltReducers from './redux-toolbelt/reducers'
 
-import toolbeltSagaReducers from './redux-toolbelt-saga/reducers'
 import * as toolbeltSagaActions from './redux-toolbelt-saga/actions'
 import toolbeltSagas from './redux-toolbelt-saga/sagas'
+import toolbeltSagaReducers from './redux-toolbelt-saga/reducers'
 
+import * as toolbeltThunkActions from './redux-toolbelt-thunk/actions'
+import toolbeltThunkReducers from './redux-toolbelt-thunk/reducers'
 
-export default function(useReduxToolbelt, useSaga){
-  const reducers = useReduxToolbelt ?
-    (useSaga ? toolbeltSagaReducers : toolbeltReducers) :
-    (useSaga ? vanillaSagaReducers : vanillaReducers)
+import * as vanillaReduxSagaActions from './vanilla-redux-saga/actions'
+import vanillaReduxSagas from './vanilla-redux-saga/sagas'
+import vanillaReduxSagaReducers from './vanilla-redux-saga/reducers'
 
-  const actions = useReduxToolbelt ?
-    (useSaga ? toolbeltSagaActions : toolbeltActions) :
-    (useSaga ? vanillaSagaActions : vanillaActions)
+const reducerVsReduxStyleMap = {
+  [REDUX_STYLE_TYPES.VANILLA_REDUX]: {
+    actions: vanillaActions,
+    reducers: vanillaReducers
+  },
+  [REDUX_STYLE_TYPES.REDUX_TOOLBELT]: {
+    actions: toolbeltActions,
+    reducers: toolbeltReducers
+  },
+  [REDUX_STYLE_TYPES.REDUX_TOOLBELT_THUNK]: {
+    actions: toolbeltThunkActions,
+    reducers: toolbeltThunkReducers
+  },
+  [REDUX_STYLE_TYPES.REDUX_TOOLBELT_SAGA]: {
+    actions: toolbeltSagaActions,
+    sagas: toolbeltSagas,
+    reducers: toolbeltSagaReducers
+  },
+  [REDUX_STYLE_TYPES.VANILLA_REDUX_SAGA]: {
+    actions: vanillaReduxSagaActions,
+    sagas: vanillaReduxSagas,
+    reducers: vanillaReduxSagaReducers
+  },
+}
 
-  const sagas = useSaga && (
-    useReduxToolbelt ? toolbeltSagas : vanillaSagas
-  )
+export default function(chosenReduxStyleType){
+  const { actions, sagas, reducers } = reducerVsReduxStyleMap[chosenReduxStyleType]
 
   const sagaMiddleware = sagas && createSagaMiddleware()
 

@@ -5,6 +5,8 @@ import { Provider } from 'react-redux'
 import Main from './common/components/Main'
 import createStore from './createStore'
 
+import { REDUX_STYLE_TYPES, REDUX_STYLE_TYPES_NAMES } from './common/consts'
+
 if(!window.regeneratorRuntime){
   window.regeneratorRuntime = require('babel-runtime/regenerator')
 }
@@ -17,20 +19,13 @@ if(!window.regeneratorRuntime){
  *                                                    *
  ******************************************************/
 
-const USE_REDUX_TOOLBELT = true
-const USE_SAGA = true
+const chosenReduxStyleType = REDUX_STYLE_TYPES.REDUX_TOOLBELT_THUNK
 
 /**************************************************
  **************************************************/
 
-const { bindedActions, store } = createStore(USE_REDUX_TOOLBELT, USE_SAGA)
-
-const title = [
-  'running using',
-  USE_REDUX_TOOLBELT ? 'redux-toolbelt' : 'vanilla-redux',
-  USE_SAGA ? 'with' : 'without',
-  'saga'
-].join(' ')
+const { bindedActions, store } = createStore(chosenReduxStyleType)
+const title = `Running using ${REDUX_STYLE_TYPES_NAMES[chosenReduxStyleType]}.`
 
 const App = () => (
   <Provider store={store}>

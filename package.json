@@ -5,19 +5,20 @@
   "private": true,
   "dependencies": {
     "lodash": "^4.17.4",
-    "react": "^15.6.1",
-    "react-dom": "^15.5.3",
+    "react": "^16.0.0",
+    "react-dom": "^16.0.0",
     "react-redux": "^5.0.6",
     "redux": "^3.7.2",
     "redux-logger": "^3.0.6",
     "redux-saga": "^0.15.6",
     "redux-thunk": "^2.2.0",
-    "redux-toolbelt": "^2.0.5",
-    "redux-toolbelt-immutable-helpers": "^1.0.5",
-    "redux-toolbelt-saga": "^1.0.1"
+    "redux-toolbelt": "^2.0.16",
+    "redux-toolbelt-immutable-helpers": "^1.0.13",
+    "redux-toolbelt-saga": "^1.0.9",
+    "redux-toolbelt-thunk": "^1.0.4"
   },
   "devDependencies": {
-    "react-scripts": "^1.0.12"
+    "react-scripts": "^1.0.14"
   },
   "scripts": {
     "start": "react-scripts start",

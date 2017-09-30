@@ -5,9 +5,7 @@ import {
   LOAD_ORDERS, LOAD_ORDERS_SUCCESS, LOAD_ORDERS_FAILURE
 } from './consts'
 
-import {
-  fetchUserProfile, fetchCustomers, fetchOrders
-} from '../common/services/api'
+import { fetchUserProfile, fetchCustomers, fetchOrders } from '../common/services/api'
 
 export const changeUserName = newUserName => ({
   type: CHANGE_USER_NAME,
@@ -31,7 +29,6 @@ export const login = () => {
         payload: error
       })
     )
-
 
     dispatch({ type: LOAD_CUSTOMERS })
     fetchCustomers().then(

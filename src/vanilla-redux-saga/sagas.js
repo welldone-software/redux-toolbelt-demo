@@ -1,8 +1,6 @@
 import { takeLatest, call, all, put } from 'redux-saga/effects'
 
-import {
-  LOGIN, LOAD_PROFILE, LOAD_CUSTOMERS, LOAD_ORDERS
-} from './consts'
+import { LOGIN, LOAD_PROFILE, LOAD_CUSTOMERS, LOAD_ORDERS } from './consts'
 
 import {
   loadProfile, loadProfileSuccess, loadProfileFailure,
