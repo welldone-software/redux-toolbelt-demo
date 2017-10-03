@@ -1,10 +1,17 @@
 import React from 'react'
 
-const Welcome = ({ userName, loggedIn }) => {
+const Welcome = ({ userName, profile, loggedIn }) => {
   return (
-    <h2>
-      {`Hello ${userName}!${loggedIn ? '' : ' Please Login.'}`}
-    </h2>
+    <div>
+      <h2>
+        {`Hello ${userName}!${loggedIn ? '' : ' Please Login.'}`}
+      </h2>
+      {profile && (
+        <h3>
+          Your id is: {profile.id}
+        </h3>
+      )}
+    </div>
   )
 }
 

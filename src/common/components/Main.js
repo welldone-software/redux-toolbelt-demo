@@ -12,10 +12,10 @@ const styles = {
   textAlign: 'center'
 }
 
-const Main = ({ loggedIn, loading, userName, customers, orders, title, actions }) => {
+const Main = ({ loggedIn, loading, userName, profile, customers, orders, title, actions }) => {
   return (
     <div style={styles}>
-      <Welcome userName={userName} loading={loading} />
+      <Welcome userName={userName} profile={profile} loading={loading} />
       <h3>{title}</h3>
       {!loggedIn && !loading && (
         <div style={{marginBottom: 10}}>
@@ -40,6 +40,7 @@ export default connect(
     userName: _.get(state, 'userName'),
     customers: _.get(state, 'customers.data'),
     orders: _.get(state, 'orders.data'),
+    profile: _.get(state, 'profile.data'),
     loggedIn: (
       _.get(state, 'profile.data') &&
       _.get(state, 'customers.data') &&
