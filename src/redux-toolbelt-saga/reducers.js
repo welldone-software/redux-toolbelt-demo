@@ -7,13 +7,12 @@ export default composeReducers(
     profile: makeAsyncReducer(loadProfile),
     customers: makeAsyncReducer(loadCustomers),
     orders: makeAsyncReducer(loadOrders),
-    userName: makeReducer(changeUserName, {defaultState: 'user'})
+    userName: makeReducer(changeUserName, { defaultState: 'user' })
   },
-  makeReducer(logout, (state, {type, payload}) =>
-    updateObjectProperties(
-      state,
+  makeReducer(logout, (state, { type, payload }) =>
+    updateObjectProperties(state,
       ['profile', 'customers', 'orders'],
-      {loading: false, data: null}
+      { loading: false, data: null }
     )
   )
 )
