@@ -1,4 +1,4 @@
-import { takeLatest, call, all, put } from 'redux-saga/effects'
+import { takeLatest, call, all, put, select } from 'redux-saga/effects'
 
 import { LOGIN, LOAD_PROFILE, LOAD_CUSTOMERS, LOAD_ORDERS } from './consts'
 
@@ -10,9 +10,9 @@ import {
 
 import { fetchUserProfile, fetchCustomers, fetchOrders } from '../common/services/api'
 
-function* loadProfileSaga(){
+function* loadProfileSaga({ payload: userName }){
   try {
-    const result = yield call(fetchUserProfile)
+    const result = yield call(fetchUserProfile, userName)
     yield put(loadProfileSuccess(result))
   }
   catch(error){
@@ -20,9 +20,9 @@ function* loadProfileSaga(){
   }
 }
 
-function* loadCustomersSaga(){
+function* loadCustomersSaga({ payload: userName }){
   try {
-    const result = yield call(fetchCustomers)
+    const result = yield call(fetchCustomers, userName)
     yield put(loadCustomersSuccess(result))
   }
   catch(error){
@@ -30,9 +30,9 @@ function* loadCustomersSaga(){
   }
 }
 
-function* loadOrdersSaga(){
+function* loadOrdersSaga({ payload: userName }){
   try {
-    const result = yield call(fetchOrders)
+    const result = yield call(fetchOrders, userName)
     yield put(loadOrdersSuccess(result))
   }
   catch(error){
@@ -41,10 +41,11 @@ function* loadOrdersSaga(){
 }
 
 function* loginSaga(){
+  const { userName } = yield select()
   yield all([
-    put(loadProfile()),
-    put(loadCustomers()),
-    put(loadOrders())
+    put(loadProfile(userName)),
+    put(loadCustomers(userName)),
+    put(loadOrders(userName))
   ])
 }
 

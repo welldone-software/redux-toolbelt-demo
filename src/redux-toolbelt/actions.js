@@ -9,23 +9,25 @@ export const loadOrders = makeAsyncActionCreator('LOAD_ORDERS')
 
 export const logout = makeActionCreator('LOGOUT')
 
-export const login = () => dispatch => {
+export const login = () => (dispatch, getState) => {
+  const { userName } = getState()
+
   dispatch({ type: 'LOGIN' })
 
-  dispatch(loadProfile())
-  fetchUserProfile().then(
+  dispatch(loadProfile(userName))
+  fetchUserProfile(userName).then(
     userProfile => dispatch(loadProfile.success(userProfile)),
     error => dispatch(loadProfile.failure(error))
   )
 
-  dispatch(loadCustomers())
-  fetchCustomers().then(
+  dispatch(loadCustomers(userName))
+  fetchCustomers(userName).then(
     customers => dispatch(loadCustomers.success(customers)),
     error => dispatch(loadCustomers.failure(error))
   )
 
-  dispatch(loadOrders())
-  fetchOrders().then(
+  dispatch(loadOrders(userName))
+  fetchOrders(userName).then(
     orders => dispatch(loadOrders.success(orders)),
     error => dispatch(loadOrders.failure(error))
   )

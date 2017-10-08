@@ -19,8 +19,8 @@ export const changeUserName = newUserName => ({
 })
 
 // profile
-export function loadProfile(){
-  return { type: LOAD_PROFILE }
+export function loadProfile(userName){
+  return { type: LOAD_PROFILE, payload: userName }
 }
 
 export function loadProfileSuccess(userProfile){
@@ -39,8 +39,8 @@ export function loadProfileFailure(error){
 
 
 // customers
-export function loadCustomers(){
-  return { type: LOAD_CUSTOMERS }
+export function loadCustomers(userName){
+  return { type: LOAD_CUSTOMERS, payload: userName }
 }
 
 export function loadCustomersSuccess(customers){
@@ -58,8 +58,8 @@ export function loadCustomersFailure(error){
 }
 
 // orders
-export function loadOrders(){
-  return { type: LOAD_ORDERS }
+export function loadOrders(userName){
+  return { type: LOAD_ORDERS, payload: userName }
 }
 
 export function loadOrdersSuccess(orders){

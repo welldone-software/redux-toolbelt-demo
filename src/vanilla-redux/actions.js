@@ -15,11 +15,13 @@ export const changeUserName = newUserName => ({
 export const logout = () => ({ type: LOGOUT })
 
 export const login = () => {
-  return (dispatch) => {
+  return (dispatch, getState) => {
+    const { userName } = getState()
+
     dispatch({ type: LOGIN })
 
     dispatch({ type: LOAD_PROFILE })
-    fetchUserProfile().then(
+    fetchUserProfile(userName).then(
       userProfile => dispatch({
         type: LOAD_PROFILE_SUCCESS,
         payload: userProfile
@@ -31,7 +33,7 @@ export const login = () => {
     )
 
     dispatch({ type: LOAD_CUSTOMERS })
-    fetchCustomers().then(
+    fetchCustomers(userName).then(
       customers => dispatch({
         type: LOAD_CUSTOMERS_SUCCESS,
         payload: customers
@@ -43,7 +45,7 @@ export const login = () => {
     )
       
     dispatch({ type: LOAD_ORDERS })
-    fetchOrders().then(
+    fetchOrders(userName).then(
       orders => dispatch({
         type: LOAD_ORDERS_SUCCESS,
         payload: orders

@@ -6,18 +6,18 @@ export const fetchUserProfile = userName => {
   })
 }
 
-export const fetchOrders = () => {
+export const fetchOrders = userName => {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
-      resolve(['order1', 'order2'])
+      resolve([`order1_of_${userName}`, `order2_of_${userName}`])
     }, 1300)
   })
 }
 
-export const fetchCustomers = () => {
+export const fetchCustomers = userName => {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
-      resolve(['customer1', 'customer2'])
+      resolve([`customer1_of_${userName}`, `customer2_of_${userName}`])
     }, 1500)
   })
 }
