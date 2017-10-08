@@ -1,34 +1,30 @@
 import {
-  LOAD_PROFILE, LOAD_PROFILE_SUCCESS, LOGOUT
+  LOGOUT, LOAD_PROFILE, LOAD_PROFILE_SUCCESS, LOAD_PROFILE_FAILURE
 } from '../consts'
 
-const defaultState = {
-  data: undefined,
-  loading: false
-}
+const defaultState = { loading: false }
 
 export default (state = defaultState, { type, payload }) => {
-  switch(type){
-    case (LOAD_PROFILE):{
-      return {
-        ...state,
-        loading: true
-      }
+  switch (type) {
+
+    case (LOAD_PROFILE): {
+      return { loading: true }
     }
+
     case (LOAD_PROFILE_SUCCESS): {
-      return {
-        ...state,
-        data: payload,
-        loading: false
-      }
+      return { loading: false, data: payload }
     }
+
+    case (LOAD_PROFILE_FAILURE): {
+      return { loading: false, error: payload }
+    }
+
     case (LOGOUT): {
-      return {
-        ...state,
-        data: null
-      }
+      return defaultState
     }
-    default:
+
+    default: {
       return state
+    }
   }
 }

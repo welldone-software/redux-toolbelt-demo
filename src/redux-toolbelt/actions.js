@@ -9,28 +9,26 @@ export const loadOrders = makeAsyncActionCreator('LOAD_ORDERS')
 
 export const logout = makeActionCreator('LOGOUT')
 
-export const login = () => {
-  return (dispatch) => {
-    dispatch({ type: 'LOGIN' })
+export const login = () => dispatch => {
+  dispatch({ type: 'LOGIN' })
 
-    dispatch(loadProfile())
-    fetchUserProfile().then(
-      userProfile => dispatch(loadProfile.success(userProfile)),
-      error => dispatch(loadProfile.failure(error))
-    )
+  dispatch(loadProfile())
+  fetchUserProfile().then(
+    userProfile => dispatch(loadProfile.success(userProfile)),
+    error => dispatch(loadProfile.failure(error))
+  )
 
-    dispatch(loadCustomers())
-    fetchCustomers().then(
-      customers => dispatch(loadCustomers.success(customers)),
-      error => dispatch(loadCustomers.failure(error))
-    )
+  dispatch(loadCustomers())
+  fetchCustomers().then(
+    customers => dispatch(loadCustomers.success(customers)),
+    error => dispatch(loadCustomers.failure(error))
+  )
 
-    dispatch(loadOrders())
-    fetchOrders().then(
-      orders => dispatch(loadOrders.success(orders)),
-      error => dispatch(loadOrders.failure(error))
-    )
-  }
+  dispatch(loadOrders())
+  fetchOrders().then(
+    orders => dispatch(loadOrders.success(orders)),
+    error => dispatch(loadOrders.failure(error))
+  )
 }
 
 login.TYPE = 'LOGIN'

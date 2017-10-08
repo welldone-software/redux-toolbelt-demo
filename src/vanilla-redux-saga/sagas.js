@@ -8,9 +8,7 @@ import {
   loadOrders, loadOrdersSuccess, loadOrdersFailure
 } from './actions'
 
-import {
-  fetchUserProfile, fetchCustomers, fetchOrders
-} from '../common/services/api'
+import { fetchUserProfile, fetchCustomers, fetchOrders } from '../common/services/api'
 
 function* loadProfileSaga(){
   try {

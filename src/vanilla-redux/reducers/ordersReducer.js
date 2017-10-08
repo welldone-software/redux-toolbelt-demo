@@ -2,41 +2,29 @@ import {
   LOGOUT, LOAD_ORDERS, LOAD_ORDERS_SUCCESS, LOAD_ORDERS_FAILURE
 } from '../consts'
 
-const defaultState = {
-  data: undefined,
-  loading: false
-}
+const defaultState = { loading: false }
 
 export default (state = defaultState, { type, payload }) => {
   switch (type) {
+
     case (LOAD_ORDERS): {
-      return {
-        ...state,
-        loading: true
-      }
+      return { loading: true }
     }
+
     case (LOAD_ORDERS_SUCCESS): {
-      return {
-        ...state,
-        data: payload,
-        loading: false
-      }
+      return { loading: false, data: payload }
     }
+
     case (LOAD_ORDERS_FAILURE): {
-      return {
-        ...state,
-        data: null,
-        error: payload,
-        loading: false
-      }
+      return { loading: false, error: payload }
     }
+
     case (LOGOUT): {
-      return {
-        ...state,
-        data: null
-      }
+      return defaultState
     }
-    default:
+
+    default: {
       return state
+    }
   }
 }
