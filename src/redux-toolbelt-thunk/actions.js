@@ -11,11 +11,8 @@ export const loadProfile = makeThunkAsyncActionCreator('LOAD_PROFILE', tt => fet
 export const loadCustomers = makeThunkAsyncActionCreator('LOAD_CUSTOMERS', fetchCustomers)
 export const loadOrders = makeThunkAsyncActionCreator('LOAD_ORDERS', fetchOrders)
 
-export const login = makeThunkAsyncActionCreator(
-  'LOGIN',
-  (e, {dispatch}) => ([
-    loadProfile(),
-    loadCustomers(),
-    loadOrders()
-  ].map(dispatch))
+export const login = makeThunkAsyncActionCreator('LOGIN',
+  (e, {dispatch, getState}) => Promise.all(
+    [loadProfile(getState().userName), loadCustomers(), loadOrders()].map(dispatch)
+  )
 )
