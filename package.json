@@ -12,10 +12,10 @@
     "redux-logger": "^3.0.6",
     "redux-saga": "^0.15.6",
     "redux-thunk": "^2.2.0",
-    "redux-toolbelt": "^2.0.17",
+    "redux-toolbelt": "^2.1.1",
     "redux-toolbelt-immutable-helpers": "^1.0.14",
-    "redux-toolbelt-saga": "^2.0.1",
-    "redux-toolbelt-thunk": "^1.0.5"
+    "redux-toolbelt-saga": "^2.0.2",
+    "redux-toolbelt-thunk": "^1.0.7"
   },
   "devDependencies": {
     "react-scripts": "^1.0.14"
