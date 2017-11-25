@@ -17,12 +17,8 @@ function* loginSaga(){
 export default function* sagas() {
   yield all([
     takeLatest(login.TYPE, loginSaga),
-    fork(makeAsyncSaga(loadProfile, (...args) => {
-      debugger
-      console.log('args', args)
-      return fetchUserProfile(...args)
-    })),
+    fork(makeAsyncSaga(loadProfile, fetchUserProfile)),
     fork(makeAsyncSaga(loadCustomers, fetchCustomers)),
-    fork(makeAsyncSaga(loadOrders, fetchOrders)),
+    fork(makeAsyncSaga(loadOrders, fetchOrders))
   ])
 }
