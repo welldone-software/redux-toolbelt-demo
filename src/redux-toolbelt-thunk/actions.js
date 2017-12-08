@@ -7,7 +7,7 @@ export const changeUserName = makeActionCreator('CHANGE_USERNAME')
 
 export const logout = makeActionCreator('LOGOUT')
 
-export const loadProfile = makeThunkAsyncActionCreator('LOAD_PROFILE', tt => fetchUserProfile(tt))
+export const loadProfile = makeThunkAsyncActionCreator('LOAD_PROFILE', fetchUserProfile)
 export const loadCustomers = makeThunkAsyncActionCreator('LOAD_CUSTOMERS', fetchCustomers)
 export const loadOrders = makeThunkAsyncActionCreator('LOAD_ORDERS', fetchOrders)
 
