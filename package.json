@@ -1,7 +1,7 @@
 {
   "name": "react-redux-toolbelt-demo",
   "description": "A demonstration project to show redux-toolbelt usage and compare it with vanilla redux",
-  "version": "0.0.148",
+  "version": "1.0.0",
   "private": true,
   "dependencies": {
     "lodash": "^4.17.4",
@@ -12,13 +12,13 @@
     "redux-logger": "^3.0.6",
     "redux-saga": "^0.16.0",
     "redux-thunk": "^2.2.0",
-    "redux-toolbelt": "^2.1.3",
-    "redux-toolbelt-immutable-helpers": "^1.0.14",
-    "redux-toolbelt-saga": "^2.0.2",
-    "redux-toolbelt-thunk": "^1.2.2"
+    "redux-toolbelt": "^2.1.4",
+    "redux-toolbelt-immutable-helpers": "^1.0.15",
+    "redux-toolbelt-saga": "^2.0.3",
+    "redux-toolbelt-thunk": "^2.0.1"
   },
   "devDependencies": {
-    "react-scripts": "^1.0.17"
+    "react-scripts": "^1.1.0"
   },
   "scripts": {
     "start": "react-scripts start",
